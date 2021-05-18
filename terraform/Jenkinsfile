@@ -1,0 +1,51 @@
+pipeline {
+
+     environment {
+        AWS_ACCESS_KEY_ID     = credentials('aws_ak')        // ak credential in jenkins manage credential
+        AWS_SECRET_ACCESS_KEY = credentials('aws_sk')       // sk credential in jenkins manage credential
+        giturl = 'https://github.com/EslamSaberSoliman/test_infra.git'   // Add the code repo here
+        gitCredential = 'infra-github'      // git credential in jenkins manage credential
+ 
+    }
+
+			
+    stages {
+
+        stage('checkout') {
+            steps {
+                 script{
+                            checkout([$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: gitCredential, url: giturl]]])
+                       
+                    }
+                }
+            }
+
+
+	   stage("Terraform Init"){
+	         steps{ 
+	             sh " pwd;cd terraform/ ;terraform init"
+	   }
+	   }
+/*	   
+	   stage("Terraform apply"){
+	       steps{
+	           sh "pwd;cd terraform/ ; terraform apply --auto-approve"
+	   }
+           }
+	   
+           stage('Destroy approval'){
+                  steps{
+                     input "Do you want to destroy?"
+            }
+            }
+
+
+	   stage("Terraform destroy"){
+	          steps{
+	                sh "pwd;cd terraform/ ;terraform destroy --auto-approve"
+	   } }
+*/		
+		
+    }
+
+  }

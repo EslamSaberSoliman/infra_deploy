@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-service
+  namespace: prometheus-grafana
+spec:
+  selector:
+    env: prod
+    dc: IN
+  type: NodePort
+  ports:
+  - nodePort: 30094
+    port: 9090

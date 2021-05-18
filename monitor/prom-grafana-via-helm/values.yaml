@@ -1,0 +1,4 @@
+grafanaPort: 31006
+prometheusPort: 31007
+#grafanaNFS: 172.31.35.144
+#prometheusNFS: 172.31.24.109
