@@ -1,4 +1,6 @@
 pipeline {
+     
+     agent  any   
 
      environment {
         AWS_ACCESS_KEY_ID     = credentials('aws_ak')        // ak credential in jenkins manage credential
