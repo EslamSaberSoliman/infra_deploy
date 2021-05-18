@@ -22,7 +22,7 @@ pipeline {
                 }
             }
 
-/*
+
 	   stage("Terraform Init"){
 	         steps{ 
 	             sh " pwd;cd terraform/ ;terraform init"
@@ -36,7 +36,7 @@ pipeline {
            }
 
 
-	   
+/*	   
 	   stage("Terraform Apply"){
 	       steps{
 	           sh "pwd;cd terraform/ ; terraform apply --auto-approve"
@@ -49,13 +49,13 @@ pipeline {
             }
             }
 
-*/
+
 	   stage("Terraform destroy"){
 	          steps{
 	                sh "pwd;cd terraform/ ;terraform destroy --auto-approve"
 	   } }
 		
-		
+*/		
     }
 
   }
