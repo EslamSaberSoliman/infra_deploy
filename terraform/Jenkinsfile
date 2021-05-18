@@ -36,26 +36,27 @@ pipeline {
            }
 
 
-/*	   
+	   
 	   stage("Terraform Apply"){
 	       steps{
 	           sh "pwd;cd terraform/ ; terraform apply --auto-approve"
 	   }
            }
-	   
+
+/*	   
            stage('Destroy approval'){
                   steps{
                      input "Do you want to destroy?"
             }
             }
 
-
+*/
 	   stage("Terraform destroy"){
 	          steps{
 	                sh "pwd;cd terraform/ ;terraform destroy --auto-approve"
 	   } }
 		
-*/		
+		
     }
 
   }
